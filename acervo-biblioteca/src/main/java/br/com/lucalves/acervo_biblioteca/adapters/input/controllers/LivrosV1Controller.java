@@ -11,6 +11,6 @@ public class LivrosV1Controller implements ILivrosSwagger {
 
     @Override
     public ResponseEntity<?> create(CreateNewLivroRequest request) {
-        return ResponseEntity.ok(request);
+        return ResponseEntity.noContent().build();
     }
 }
