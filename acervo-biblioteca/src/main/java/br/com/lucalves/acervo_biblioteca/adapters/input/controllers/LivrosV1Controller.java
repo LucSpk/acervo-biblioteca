@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequestMapping("livros/v1")
 @Controller
-public class LivrosV1Controller implements LivrosSwagger {
+public class LivrosV1Controller implements ILivrosSwagger {
 
     @Override
     public ResponseEntity<?> create(CreateNewLivroRequest request) {

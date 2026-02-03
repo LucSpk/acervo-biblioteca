@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-public interface LivrosSwagger {
+public interface ILivrosSwagger {
 
     @PostMapping("adicionar")
     public ResponseEntity<?> create(@RequestBody CreateNewLivroRequest request);
