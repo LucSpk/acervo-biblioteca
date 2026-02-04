@@ -3,7 +3,7 @@ package br.com.lucalves.acervo_biblioteca.application.core.domain.livros;
 import java.util.List;
 import java.util.Objects;
 
-public record CreateNewLivroRequest(
+public record Livro(
         String titulo,
         String subtitulo,
         String autor,
@@ -17,7 +17,7 @@ public record CreateNewLivroRequest(
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        CreateNewLivroRequest that = (CreateNewLivroRequest) o;
+        Livro that = (Livro) o;
         return volume == that.volume && Objects.equals(autor, that.autor) && Objects.equals(titulo, that.titulo) && Objects.equals(edicao, that.edicao) && Objects.equals(idioma, that.idioma) && Objects.equals(editora, that.editora) && Objects.equals(subtitulo, that.subtitulo);
     }
 

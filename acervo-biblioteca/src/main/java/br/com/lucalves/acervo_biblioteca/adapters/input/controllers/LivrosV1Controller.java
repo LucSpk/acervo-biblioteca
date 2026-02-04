@@ -1,7 +1,7 @@
 package br.com.lucalves.acervo_biblioteca.adapters.input.controllers;
 
 import br.com.lucalves.acervo_biblioteca.adapters.output.LivrosInMemoriaAdapter;
-import br.com.lucalves.acervo_biblioteca.application.core.domain.livros.CreateNewLivroRequest;
+import br.com.lucalves.acervo_biblioteca.application.core.domain.livros.Livro;
 import br.com.lucalves.acervo_biblioteca.application.core.usecases.LivrosUseCase;
 import br.com.lucalves.acervo_biblioteca.application.ports.input.ILivrosInputPort;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class LivrosV1Controller implements ILivrosSwagger {
     }
 
     @Override
-    public ResponseEntity<?> create(CreateNewLivroRequest request) {
+    public ResponseEntity<?> create(Livro request) {
         livrosInputPort.create(request);
         return ResponseEntity.noContent().build();
     }

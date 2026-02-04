@@ -1,6 +1,6 @@
 package br.com.lucalves.acervo_biblioteca.application.core.usecases;
 
-import br.com.lucalves.acervo_biblioteca.application.core.domain.livros.CreateNewLivroRequest;
+import br.com.lucalves.acervo_biblioteca.application.core.domain.livros.Livro;
 import br.com.lucalves.acervo_biblioteca.application.ports.input.ILivrosInputPort;
 import br.com.lucalves.acervo_biblioteca.application.ports.output.ILivrosOutputPort;
 
@@ -13,7 +13,7 @@ public class LivrosUseCase implements ILivrosInputPort {
     }
 
     @Override
-    public void create(CreateNewLivroRequest request) {
+    public void create(Livro request) {
         livrosOutputPort.create(request);
     }
 }
