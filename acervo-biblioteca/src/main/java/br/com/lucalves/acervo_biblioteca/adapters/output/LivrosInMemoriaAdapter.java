@@ -6,11 +6,13 @@ import br.com.lucalves.acervo_biblioteca.application.ports.output.ILivrosOutputP
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class LivrosInMemoriaAdapter implements ILivrosOutputPort {
-    private List<LivrosInMemoria> livros = new ArrayList<>();
+    private Map<String, LivrosInMemoria> livros = new HashMap<>();
 
     @Override
     public void create(CreateNewLivroRequest request) {
@@ -25,7 +27,7 @@ public class LivrosInMemoriaAdapter implements ILivrosOutputPort {
                 request.generos(),
                 request.tags()
         );
-        livros.add(livrosInMemoria);
-        livros.forEach(System.out::println);
+        livros.put(String.valueOf(livrosInMemoria.hashCode()), livrosInMemoria);
+        livros.values().forEach(System.out::println);
     }
 }
