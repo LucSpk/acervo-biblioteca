@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @RequestMapping("livros/v1")
 @Controller
 public class LivrosV1Controller implements ILivrosSwagger {
@@ -24,5 +26,10 @@ public class LivrosV1Controller implements ILivrosSwagger {
     public ResponseEntity<?> create(Livro request) {
         livrosInputPort.create(request);
         return ResponseEntity.noContent().build();
+    }
+
+    @Override
+    public ResponseEntity<List<Livro>> getAll() {
+        return ResponseEntity.ok(livrosInputPort.getAll());
     }
 }
