@@ -11,7 +11,7 @@ import java.util.List;
 public interface ILivrosSwagger {
 
     @PostMapping("adicionar")
-    public ResponseEntity<?> create(@RequestBody Livro request);
+    public ResponseEntity<Integer> create(@RequestBody Livro request);
 
     @GetMapping("listar-todos")
     public ResponseEntity<List<Livro>> getAll();
