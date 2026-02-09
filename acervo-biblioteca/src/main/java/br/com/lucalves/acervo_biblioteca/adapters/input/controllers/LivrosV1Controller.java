@@ -28,6 +28,11 @@ public class LivrosV1Controller implements ILivrosSwagger {
     }
 
     @Override
+    public ResponseEntity<Livro> get(Integer id) {
+        return ResponseEntity.ok(livrosInputPort.get(id));
+    }
+
+    @Override
     public ResponseEntity<List<Livro>> getAll() {
         return ResponseEntity.ok(livrosInputPort.getAll());
     }

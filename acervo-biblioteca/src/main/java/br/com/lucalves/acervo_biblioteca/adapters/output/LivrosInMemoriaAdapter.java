@@ -30,6 +30,25 @@ public class LivrosInMemoriaAdapter implements ILivrosOutputPort {
         return livrosInMemoria.hashCode();
     }
 
+    @Override
+    public Livro get(Integer id) {
+        if(!livros.containsKey(String.valueOf(id)))
+            return null;
+
+        LivrosInMemoria livrosInMemoria = livros.get(String.valueOf(id));
+        return new Livro(
+                livrosInMemoria.titulo(),
+                livrosInMemoria.subtitulo(),
+                livrosInMemoria.autor(),
+                livrosInMemoria.volume(),
+                livrosInMemoria.edicao(),
+                livrosInMemoria.editora(),
+                livrosInMemoria.idioma(),
+                livrosInMemoria.generos(),
+                livrosInMemoria.tags()
+        );
+    }
+
     public List<Livro> getAll() {
         return livros.values().stream().map(arg -> {
             return new Livro(

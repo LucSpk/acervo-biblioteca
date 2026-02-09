@@ -3,6 +3,7 @@ package br.com.lucalves.acervo_biblioteca.application.core.usecases;
 import br.com.lucalves.acervo_biblioteca.application.core.domain.livros.Livro;
 import br.com.lucalves.acervo_biblioteca.application.ports.input.ILivrosInputPort;
 import br.com.lucalves.acervo_biblioteca.application.ports.output.ILivrosOutputPort;
+import org.jspecify.annotations.Nullable;
 
 import java.util.List;
 
@@ -17,6 +18,11 @@ public class LivrosUseCase implements ILivrosInputPort {
     @Override
     public int create(Livro request) {
         return livrosOutputPort.create(request);
+    }
+
+    @Override
+    public @Nullable Livro get(Integer id) {
+        return livrosOutputPort.get(id);
     }
 
     @Override
