@@ -5,6 +5,6 @@ import br.com.lucalves.acervo_biblioteca.application.core.domain.livros.Livro;
 import java.util.List;
 
 public interface ILivrosOutputPort {
-    void create(Livro request);
+    int create(Livro request);
     List<Livro> getAll();
 }

@@ -15,8 +15,8 @@ public class LivrosUseCase implements ILivrosInputPort {
     }
 
     @Override
-    public void create(Livro request) {
-        livrosOutputPort.create(request);
+    public int create(Livro request) {
+        return livrosOutputPort.create(request);
     }
 
     @Override

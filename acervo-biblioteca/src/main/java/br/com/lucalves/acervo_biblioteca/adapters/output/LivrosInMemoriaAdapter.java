@@ -14,7 +14,7 @@ public class LivrosInMemoriaAdapter implements ILivrosOutputPort {
     private Map<String, LivrosInMemoria> livros = new HashMap<>();
 
     @Override
-    public void create(Livro request) {
+    public int create(Livro request) {
         LivrosInMemoria livrosInMemoria = new LivrosInMemoria(
                 request.titulo(),
                 request.subtitulo(),
@@ -27,7 +27,7 @@ public class LivrosInMemoriaAdapter implements ILivrosOutputPort {
                 request.tags()
         );
         livros.put(String.valueOf(livrosInMemoria.hashCode()), livrosInMemoria);
-        livros.values().forEach(System.out::println);
+        return livrosInMemoria.hashCode();
     }
 
     public List<Livro> getAll() {
