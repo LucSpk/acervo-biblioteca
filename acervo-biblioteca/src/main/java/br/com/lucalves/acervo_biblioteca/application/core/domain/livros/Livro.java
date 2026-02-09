@@ -12,7 +12,8 @@ public record Livro(
         String editora,
         String idioma,
         List<String> generos,
-        List<String> tags
+        List<String> tags,
+        Integer id
 ) {
     @Override
     public boolean equals(Object o) {
