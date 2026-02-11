@@ -6,7 +6,7 @@ import org.jspecify.annotations.Nullable;
 import java.util.List;
 
 public interface ILivrosOutputPort {
-    int create(Livro request);
-    Livro get(Integer id);
+    Long create(Livro request);
+    Livro get(Long id);
     List<Livro> getAll();
 }
