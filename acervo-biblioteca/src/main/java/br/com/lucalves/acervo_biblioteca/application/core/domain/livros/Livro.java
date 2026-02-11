@@ -13,7 +13,7 @@ public record Livro(
         String idioma,
         List<String> generos,
         List<String> tags,
-        Integer id
+        Long id
 ) {
     @Override
     public boolean equals(Object o) {
