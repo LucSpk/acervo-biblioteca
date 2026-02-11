@@ -11,10 +11,10 @@ import java.util.Map;
 
 @Repository
 public class LivrosInMemoriaAdapter implements ILivrosOutputPort {
-    private Map<String, LivrosInMemoria> livros = new HashMap<>();
+    private Map<Long, LivrosInMemoria> livros = new HashMap<>();
 
     @Override
-    public int create(Livro request) {
+    public Long create(Livro request) {
         LivrosInMemoria livrosInMemoria = new LivrosInMemoria(
                 request.titulo(),
                 request.subtitulo(),
@@ -26,16 +26,28 @@ public class LivrosInMemoriaAdapter implements ILivrosOutputPort {
                 request.generos(),
                 request.tags()
         );
-        livros.put(String.valueOf(livrosInMemoria.hashCode()), livrosInMemoria);
-        return livrosInMemoria.hashCode();
+
+        if(!livros.containsValue(livrosInMemoria)) {
+            Long id = (long)livros.values().size();
+            id = id + 1;
+            livros.put(id, livrosInMemoria);
+            return id;
+        }
+
+        return livros.entrySet()
+                .stream()
+                .filter(e -> e.getValue().equals("valor1"))
+                .findFirst()
+                .map(Map.Entry::getKey)
+                .orElse(null);
     }
 
     @Override
-    public Livro get(Integer id) {
-        if(!livros.containsKey(String.valueOf(id)))
+    public Livro get(Long id) {
+        if(!livros.containsKey(id))
             return null;
 
-        LivrosInMemoria livrosInMemoria = livros.get(String.valueOf(id));
+        LivrosInMemoria livrosInMemoria = livros.get(id);
         return new Livro(
                 livrosInMemoria.titulo(),
                 livrosInMemoria.subtitulo(),
@@ -45,23 +57,23 @@ public class LivrosInMemoriaAdapter implements ILivrosOutputPort {
                 livrosInMemoria.editora(),
                 livrosInMemoria.idioma(),
                 livrosInMemoria.generos(),
-                livrosInMemoria.tags()
+                livrosInMemoria.tags(),
+                id
         );
     }
 
     public List<Livro> getAll() {
-        return livros.values().stream().map(arg -> {
-            return new Livro(
-                arg.titulo(),
-                arg.subtitulo(),
-                arg.autor(),
-                arg.volume(),
-                arg.edicao(),
-                arg.editora(),
-                arg.idioma(),
-                arg.generos(),
-                arg.tags()
-            );
-        }).toList();
+        return livros.entrySet().stream().map(arg -> new Livro(
+                arg.getValue().titulo(),
+                arg.getValue().subtitulo(),
+                arg.getValue().autor(),
+                arg.getValue().volume(),
+                arg.getValue().edicao(),
+                arg.getValue().editora(),
+                arg.getValue().idioma(),
+                arg.getValue().generos(),
+                arg.getValue().tags(),
+                arg.getKey()
+            )).toList();
     }
 }
