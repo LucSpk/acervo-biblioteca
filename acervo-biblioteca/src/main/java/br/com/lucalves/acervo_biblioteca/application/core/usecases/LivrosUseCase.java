@@ -16,12 +16,12 @@ public class LivrosUseCase implements ILivrosInputPort {
     }
 
     @Override
-    public int create(Livro request) {
+    public Long create(Livro request) {
         return livrosOutputPort.create(request);
     }
 
     @Override
-    public @Nullable Livro get(Integer id) {
+    public @Nullable Livro get(Long id) {
         return livrosOutputPort.get(id);
     }
 

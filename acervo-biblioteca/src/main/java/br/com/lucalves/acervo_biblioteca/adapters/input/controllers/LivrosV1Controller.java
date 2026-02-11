@@ -23,12 +23,12 @@ public class LivrosV1Controller implements ILivrosSwagger {
     }
 
     @Override
-    public ResponseEntity<Integer> create(Livro request) {
+    public ResponseEntity<Long> create(Livro request) {
         return  ResponseEntity.ok(livrosInputPort.create(request));
     }
 
     @Override
-    public ResponseEntity<Livro> get(Integer id) {
+    public ResponseEntity<Livro> get(Long id) {
         return ResponseEntity.ok(livrosInputPort.get(id));
     }
 
