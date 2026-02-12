@@ -45,6 +45,6 @@ public class LivrosV1Controller implements ILivrosSwagger {
 
     @Override
     public ResponseEntity<?> edite(Long id, Livro request) {
-        return null;
+        return  livrosInputPort.edite(id, request);
     }
 }
