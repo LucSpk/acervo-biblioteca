@@ -37,7 +37,7 @@ public class LivrosUseCase implements ILivrosInputPort {
     }
 
     @Override
-    public ResponseEntity<?> edite(Long id, Livro request) {
-        return null;
+    public void edite(Long id, Livro request) {
+        return livrosOutputPort.edite(id, request);
     }
 }

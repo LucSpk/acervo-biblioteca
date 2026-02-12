@@ -11,5 +11,5 @@ public interface ILivrosInputPort {
     @Nullable Livro get(Long id);
     List<Livro> getAll();
     void delete(Long id);
-    ResponseEntity<?> edite(Long id, Livro request);
+    void edite(Long id, Livro request);
 }
