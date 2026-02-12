@@ -36,4 +36,9 @@ public class LivrosV1Controller implements ILivrosSwagger {
     public ResponseEntity<List<Livro>> getAll() {
         return ResponseEntity.ok(livrosInputPort.getAll());
     }
+
+    @Override
+    public ResponseEntity<?> delete(Long id) {
+        return null;
+    }
 }
