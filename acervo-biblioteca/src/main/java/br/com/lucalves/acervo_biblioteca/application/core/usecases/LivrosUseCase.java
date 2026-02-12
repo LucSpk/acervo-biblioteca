@@ -29,4 +29,9 @@ public class LivrosUseCase implements ILivrosInputPort {
     public List<Livro> getAll() {
         return livrosOutputPort.getAll();
     }
+
+    @Override
+    public void delete(Long id) {
+        livrosOutputPort.delete(id);
+    }
 }
