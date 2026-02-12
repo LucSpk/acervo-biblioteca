@@ -9,4 +9,5 @@ public interface ILivrosOutputPort {
     Long create(Livro request);
     Livro get(Long id);
     List<Livro> getAll();
+    void delete(Long id);
 }

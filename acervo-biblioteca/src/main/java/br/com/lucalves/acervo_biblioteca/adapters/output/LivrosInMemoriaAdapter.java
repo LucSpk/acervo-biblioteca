@@ -76,4 +76,9 @@ public class LivrosInMemoriaAdapter implements ILivrosOutputPort {
                 arg.getKey()
             )).toList();
     }
+
+    @Override
+    public void delete(Long id) {
+        livros.remove(id);
+    }
 }
