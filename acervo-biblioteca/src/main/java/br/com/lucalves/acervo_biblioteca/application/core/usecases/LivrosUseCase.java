@@ -38,6 +38,6 @@ public class LivrosUseCase implements ILivrosInputPort {
 
     @Override
     public void edite(Long id, Livro request) {
-        return livrosOutputPort.edite(id, request);
+        livrosOutputPort.edite(id, request);
     }
 }

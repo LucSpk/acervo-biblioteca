@@ -81,4 +81,24 @@ public class LivrosInMemoriaAdapter implements ILivrosOutputPort {
     public void delete(Long id) {
         livros.remove(id);
     }
+
+    @Override
+    public void edite(Long id, Livro request) {
+        if(!livros.containsKey(id))
+            return;
+
+        LivrosInMemoria livrosInMemoria = new LivrosInMemoria(
+                request.titulo(),
+                request.subtitulo(),
+                request.autor(),
+                request.volume(),
+                request.edicao(),
+                request.editora(),
+                request.idioma(),
+                request.generos(),
+                request.tags()
+        );
+
+        livros.put(id, livrosInMemoria);
+    }
 }
