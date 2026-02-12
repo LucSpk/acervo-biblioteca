@@ -36,10 +36,10 @@ public class LivrosInMemoriaAdapter implements ILivrosOutputPort {
 
         return livros.entrySet()
                 .stream()
-                .filter(e -> e.getValue().equals("valor1"))
-                .findFirst()
+                .filter(entry -> entry.getValue().equals(livrosInMemoria))
                 .map(Map.Entry::getKey)
-                .orElse(null);
+                .findFirst()
+                .orElseThrow();
     }
 
     @Override
