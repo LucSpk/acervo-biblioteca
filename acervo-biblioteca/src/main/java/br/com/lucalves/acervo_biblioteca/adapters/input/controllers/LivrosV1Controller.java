@@ -42,4 +42,9 @@ public class LivrosV1Controller implements ILivrosSwagger {
         livrosInputPort.delete(id);
         return ResponseEntity.noContent().build();
     }
+
+    @Override
+    public ResponseEntity<?> edite(Long id, Livro request) {
+        return null;
+    }
 }

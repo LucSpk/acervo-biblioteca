@@ -17,6 +17,9 @@ public interface ILivrosSwagger {
     @GetMapping("listar-todos")
     ResponseEntity<List<Livro>> getAll();
 
-    @DeleteMapping("apagar-livro")
+    @DeleteMapping("apagar-livro/{id}")
     ResponseEntity<?> delete(@PathVariable("id") Long id);
+
+    @PutMapping("alterar-livro/{id}")
+    ResponseEntity<?> edite(@PathVariable("id") Long id, @RequestBody Livro request);
 }
