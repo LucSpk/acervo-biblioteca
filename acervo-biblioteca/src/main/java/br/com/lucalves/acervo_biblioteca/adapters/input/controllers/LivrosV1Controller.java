@@ -1,6 +1,7 @@
 package br.com.lucalves.acervo_biblioteca.adapters.input.controllers;
 
 import br.com.lucalves.acervo_biblioteca.adapters.output.LivrosInMemoriaAdapter;
+import br.com.lucalves.acervo_biblioteca.adapters.output.LivrosLocalFileAdapter;
 import br.com.lucalves.acervo_biblioteca.application.core.domain.livros.Livro;
 import br.com.lucalves.acervo_biblioteca.application.core.usecases.LivrosUseCase;
 import br.com.lucalves.acervo_biblioteca.application.ports.input.ILivrosInputPort;
@@ -18,8 +19,8 @@ public class LivrosV1Controller implements ILivrosSwagger {
     private final ILivrosInputPort livrosInputPort;
 
     @Autowired
-    public LivrosV1Controller(LivrosInMemoriaAdapter livrosInMemoriaAdapter) {
-        this.livrosInputPort = new LivrosUseCase(livrosInMemoriaAdapter);
+    public LivrosV1Controller(LivrosLocalFileAdapter adapter) {
+        this.livrosInputPort = new LivrosUseCase(adapter);
     }
 
     @Override
