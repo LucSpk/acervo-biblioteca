@@ -56,7 +56,23 @@ public class LivrosLocalFileAdapter implements ILivrosOutputPort {
 
     @Override
     public Livro get(Long id) {
-        return null;
+        if (!livros.containsKey(id))
+            return null;
+
+        LivrosInMemoria livro = livros.get(id);
+
+        return new Livro(
+                livro.titulo(),
+                livro.subtitulo(),
+                livro.autor(),
+                livro.volume(),
+                livro.edicao(),
+                livro.editora(),
+                livro.idioma(),
+                livro.generos(),
+                livro.tags(),
+                id
+        );
     }
 
     @Override
