@@ -51,7 +51,12 @@ public class LivrosLocalFileAdapter implements ILivrosOutputPort {
             return id;
         }
 
-        return 0L;
+        return livros.entrySet()
+                .stream()
+                .filter(entry -> entry.getValue().equals(novoLivro))
+                .map(Map.Entry::getKey)
+                .findFirst()
+                .orElse(0L);
     }
 
     @Override
@@ -102,7 +107,23 @@ public class LivrosLocalFileAdapter implements ILivrosOutputPort {
 
     @Override
     public void edite(Long id, Livro request) {
+        if(!livros.containsKey(id))
+            return;
 
+        LivrosInMemoria livroAtualizado = new LivrosInMemoria(
+                request.titulo(),
+                request.subtitulo(),
+                request.autor(),
+                request.volume(),
+                request.edicao(),
+                request.editora(),
+                request.idioma(),
+                request.generos(),
+                request.tags()
+        );
+
+        livros.put(id, livroAtualizado);
+        salvarArquivo();
     }
 
     private void carregaArquivo() {
