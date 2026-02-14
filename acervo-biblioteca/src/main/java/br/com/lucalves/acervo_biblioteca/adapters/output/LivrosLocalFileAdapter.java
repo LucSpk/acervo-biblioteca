@@ -96,7 +96,8 @@ public class LivrosLocalFileAdapter implements ILivrosOutputPort {
 
     @Override
     public void delete(Long id) {
-
+        livros.remove(id);
+        salvarArquivo();
     }
 
     @Override
