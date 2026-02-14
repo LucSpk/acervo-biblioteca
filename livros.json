@@ -1,0 +1,24 @@
+{
+  "1" : {
+    "titulo" : "O Senhor dos Anéis",
+    "subtitulo" : "A Sociedade do Anel",
+    "autor" : "J.R.R. Tolkien",
+    "volume" : 1,
+    "edicao" : "1",
+    "editora" : "HarperCollins",
+    "idioma" : "Português",
+    "generos" : [ "Fantasia", "Ficção" ],
+    "tags" : [ "fantasia", "aventura", "clássico", "literatura inglesa" ]
+  },
+  "2" : {
+    "titulo" : "O Senhor dos Anéis",
+    "subtitulo" : "As Duas Torres",
+    "autor" : "J.R.R. Tolkien",
+    "volume" : 2,
+    "edicao" : "1",
+    "editora" : "HarperCollins",
+    "idioma" : "Português",
+    "generos" : [ "Fantasia", "Ficção" ],
+    "tags" : [ "fantasia", "aventura", "clássico", "literatura inglesa", "continuação" ]
+  }
+}
