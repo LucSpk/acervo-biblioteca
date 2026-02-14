@@ -77,7 +77,21 @@ public class LivrosLocalFileAdapter implements ILivrosOutputPort {
 
     @Override
     public List<Livro> getAll() {
-        return List.of();
+        return livros.entrySet()
+            .stream()
+            .map(entry -> new Livro(
+                    entry.getValue().titulo(),
+                    entry.getValue().subtitulo(),
+                    entry.getValue().autor(),
+                    entry.getValue().volume(),
+                    entry.getValue().edicao(),
+                    entry.getValue().editora(),
+                    entry.getValue().idioma(),
+                    entry.getValue().generos(),
+                    entry.getValue().tags(),
+                    entry.getKey()
+            ))
+            .toList();
     }
 
     @Override
