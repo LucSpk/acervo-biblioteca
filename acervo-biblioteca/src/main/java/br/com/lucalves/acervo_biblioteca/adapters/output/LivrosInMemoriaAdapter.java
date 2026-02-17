@@ -3,6 +3,7 @@ package br.com.lucalves.acervo_biblioteca.adapters.output;
 import br.com.lucalves.acervo_biblioteca.adapters.output.domain.inmemoria.LivrosInMemoria;
 import br.com.lucalves.acervo_biblioteca.application.core.domain.livros.Livro;
 import br.com.lucalves.acervo_biblioteca.application.ports.output.ILivrosOutputPort;
+import br.com.lucalves.acervo_biblioteca.communs.exceptions.NotFoundException;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
@@ -45,7 +46,7 @@ public class LivrosInMemoriaAdapter implements ILivrosOutputPort {
     @Override
     public Livro get(Long id) {
         if(!livros.containsKey(id))
-            return null;
+            throw new NotFoundException("Id " + id + " não encontrado");
 
         LivrosInMemoria livrosInMemoria = livros.get(id);
         return new Livro(
